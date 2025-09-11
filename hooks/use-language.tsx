@@ -37,31 +37,16 @@ const translations = {
     viewWork: "Bekijk Mijn Werk",
 
     // Education Section
-    educationTitle: "Opleiding",
-    firstDegree: "Algemeen Secundair Onderwijs",
-    firstDescription: "Algemene vakken met een focus op wiskunde en wetenschappen.",
-    firstInstitution: "Edugo Campus De Brug",
+    education: "Opleiding",
 
-    secondDegree: "Elektromechanica - TSO",
-    secondDescription: "Focus op mechanica, elektriciteit en automatisering.",
-    secondInstitution: "Edugo Campus Glorieux",
-
-    thirdDegree: "Bachelor Toegepaste Informatica",
-    thirdDescription: "Afstudeerrichting AI & Data engineering.",
-    thirdInstitution: "Hogeschool Gent",
-
-    // events
-    graduated: "Bachelor behaald",
-    graduatedDescription: "Bachelor in Toegepaste Informatica behaald aan HoGent.",
-    internship: "Stage bij ArcelorMittal Gent",
-    internshipDescription: "Trainen van segmentatie netwerken voor defectdetectie in staalproductie.",
-    certificate: "VCA Basisveiligheid Behaald",
-    certificateDescription: "Veiligheidscertificaat (VCA) Basisveiligheid behaald, geldig tot 2031.",
-    tsoGraduated: "Diploma Elektromechanica Behaald",
-    tsoGraduatedDescription: "Diploma Elektromechanica 3de graad behaald aan Edugo Campus Glorieux.",
-    studentJob: "Studentenjob bij Zero Latency VR",
-    studentJobDescription: "Ondersteuning van VR-ervaringen en klantenservice in een high-tech omgeving.",
-
+    // Werkervaring Sectie
+    workExperience: "Werkervaring",
+    WorkDescription: "Mijn professionele reis",
+    current: "Huidig",
+    technologiesUsed: "Vaardigheden",
+    collaborateMessage: "Geïnteresseerd in samenwerking?",
+    getInTouch: "Neem Contact Op",
+  
     // Over Sectie
     aboutTitle: "Over Mij",
     aboutDescription:
@@ -95,6 +80,8 @@ const translations = {
     linkedin: "LinkedIn",
   },
   en: {
+    education: "Education",
+
     // Navigation
     about: "About",
     projects: "Projects",
@@ -113,19 +100,13 @@ const translations = {
     aboutDescription:
       `I am ${calculateAge('2004-08-17')} years old and have a passion for technology. In my Applied Computer Science studies, I am immersed in AI and data management, essential elements in today's world. With my background in Electromechanics, I want to bring technology and industry together to contribute to tomorrow's innovations.`,
 
-    // Education Section
-    educationTitle: "Education",
-    firstDegree: "General Secondary Education",
-    firstDescription: "General subjects with a focus on mathematics and sciences.",
-    firstInstitution: "Edugo Campus De Brug",
-
-    secondDegree: "Electromechanics - TSO",
-    secondDescription: "Focus on mechanics, electricity, and automation.",
-    secondInstitution: "Edugo Campus Glorieux",
-
-    thirdDegree: "Bachelor of Applied Computer Science",
-    thirdDescription: "Specialization in AI & Data Engineering.",
-    thirdInstitution: "Hogeschool Gent",
+    // work Section
+    workExperience: "Work Experience",
+    WorkDescription: "My professional journey",
+    current: "Current",
+    technologiesUsed: "Skills",
+    collaborateMessage: "Interested in working together?",
+    getInTouch: "Get in Touch",
 
     // events
     graduated: "Graduated",

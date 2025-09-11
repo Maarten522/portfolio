@@ -17,7 +17,7 @@ export function HeroSection() {
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <div className="relative w-40 h-40 md:w-60 md:h-60 mx-auto mb-6">
+            <div className="relative w-40 h-40 md:w-60 md:h-60 mx-auto mt-30 mb-10">
               <img
                 src="/cartoon.png"
                 alt="Profile picture"
@@ -31,9 +31,7 @@ export function HeroSection() {
             {t("heroTitle")}
           </h1>
           <h2 className="text-2xl md:text-3xl text-primary mb-8 font-semibold">{t("heroSubtitle")}</h2>
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed text-pretty">
-            {t("heroDescription")}
-          </p>
+         
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <Button
@@ -71,9 +69,9 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <ArrowDown className="h-6 w-6 text-muted-foreground" />
-      </div>
+      </div> */}
     </section>
   )
 }
