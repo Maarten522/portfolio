@@ -1,0 +1,79 @@
+"use client"
+
+import { useLanguage } from "@/hooks/use-language"
+import { Button } from "@/components/ui/button"
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+
+export function HeroSection() {
+  const { t } = useLanguage()
+
+  const scrollToProjects = () => {
+    const element = document.getElementById("projects")
+    element?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  return (
+    <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-card">
+      <div className="container mx-auto px-4 text-center">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-8">
+            <div className="relative w-40 h-40 md:w-60 md:h-60 mx-auto mb-6">
+              <img
+                src="/cartoon.png"
+                alt="Profile picture"
+                className="w-full h-full rounded-full object-cover border-4 border-primary/20 shadow-2xl"
+              />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-transparent"></div>
+            </div>
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-[family-name:var(--font-playfair)] text-balance">
+            {t("heroTitle")}
+          </h1>
+          <h2 className="text-2xl md:text-3xl text-primary mb-8 font-semibold">{t("heroSubtitle")}</h2>
+          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed text-pretty">
+            {t("heroDescription")}
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            <Button
+              onClick={scrollToProjects}
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3"
+            >
+              {t("viewWork")}
+            </Button>
+
+            <div className="flex items-center gap-4">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => window.open("https://github.com/maarten522", "_blank")}
+                >
+                  <Github className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => window.open("https://www.linkedin.com/in/maartenvds", "_blank")}
+                >
+                  <Linkedin className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => (window.location.href = "mailto:maarten.vanderschueren@telenet.be")}
+                >
+                  <Mail className="h-5 w-5" />
+                </Button>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <ArrowDown className="h-6 w-6 text-muted-foreground" />
+      </div>
+    </section>
+  )
+}
