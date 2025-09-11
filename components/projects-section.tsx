@@ -17,18 +17,23 @@ export function ProjectsSection() {
       description: t("project1Description"),
       image: "/GIP.png",
       video: "/eindwerk.mp4", // Voeg hier de videolink toe
+      code: "",
       tags: ["PLC", "Elektriciteit", "Mechanica"],
     },
     {
       title: t("project2Title"),
       description: t("project2Description"),
       image: "/solar.png",
+      video: "",
+      code: "",
       tags: ["pandas", "scikit-learn", "Tensorflow"],
     },
     {
       title: t("project3Title"),
       description: t("project3Description"),
       image: "/chatbot.png",
+      video: "",
+      code: "",
       tags: ["NLP", "TensorFlow", "Node.js"],
     },
   ]
@@ -110,7 +115,7 @@ export function ProjectsSection() {
       </div>
 
       {/* Video Modal */}
-      {isModalOpen && (
+      {isModalOpen && currentVideo && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg overflow-hidden shadow-lg max-w-3xl w-full">
             <div className="relative">
