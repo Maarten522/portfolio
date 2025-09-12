@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "homepage": "https://maarten522.github.io/portfolio",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
