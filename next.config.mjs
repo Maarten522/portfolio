@@ -1,13 +1,13 @@
-
+// next.config.mjs
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  output: "export",              // nodig voor statische export (GitHub Pages)
   images: {
-    unoptimized: true, // Disable default image optimization
+    unoptimized: true,           // voorkomt problemen met next/image
   },
-  assetPrefix:'/portfolio/',
   distDir: 'dist',
-  basePath: '/portfolio',
-  output: 'export'
+  basePath: "/portfolio", // bv. "/portfolio"
+  assetPrefix: "/", // zorgt dat CSS/JS goed geladen wordt
 };
 
 export default nextConfig;
