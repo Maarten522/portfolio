@@ -26,7 +26,10 @@ export function WorkExperienceSection() {
         nl: "Helpen van klanten met VR-ervaringen, technische ondersteuning en zorgen voor een soepele werking van de faciliteit.",
       },
       technologies: ["Customer Service", "Technical Support", "Teamwork"],
-      achievements: {},
+      achievements: {
+        en: "Excellent customer satisfaction ratings",
+        nl: "Uitstekende klanttevredenheidscijfers",
+      },
       current: true,
     },
     {
@@ -45,8 +48,10 @@ export function WorkExperienceSection() {
         en: "Organizing and leading activities for children during summer and easter camps, ensuring a fun and safe environment.",
         nl: "Organiseren en leiden van activiteiten voor kinderen tijdens zomer- en paasvakanties, zorgen voor een leuke en veilige omgeving.",
       },
-      technologies: [],
+      technologies: ["Leadership", "Event Planning", "Child Care"],
       achievements: {
+        en: "Successfully managed groups of 20+ children",
+        nl: "Succesvol groepen van 20+ kinderen geleid",
       },
       current: true,
     },
@@ -76,94 +81,97 @@ export function WorkExperienceSection() {
   ]
 
   return (
-    <section id="experience" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-balance">
-            {t("workExperience")}
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
+    <section id="experience" className="py-12 sm:py-16 lg:py-20 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-balance">{t("workExperience")}</h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
             {t("WorkDescription")}
           </p>
         </div>
 
-        <div className="grid gap-8 max-w-4xl mx-auto">
+        <div className="grid gap-6 sm:gap-8 max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
             <Card
               key={index}
               className="group hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/20 bg-card/50 backdrop-blur-sm"
             >
-              <CardContent className="p-8">
-                <div className="flex flex-col lg:flex-row lg:items-start gap-6">
+              <CardContent className="p-4 sm:p-6 lg:p-8">
+                <div className="flex flex-col gap-4 sm:gap-6">
                   {/* Company Info */}
                   <div className="flex-1">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <div className="flex items-center gap-3 mb-2">
-                          <Building2 className="h-5 w-5 text-primary" />
-                          <h3 className="text-xl font-semibold text-foreground">{exp.company}</h3>
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-2">
+                      <div className="flex-1">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                          <div className="flex items-center gap-2">
+                            <Building2 className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
+                            <h3 className="text-lg sm:text-xl font-semibold text-foreground">{exp.company}</h3>
+                          </div>
                           {exp.current && (
-                            <Badge variant="default" className="bg-primary/10 text-primary border-primary/20">
+                            <Badge
+                              variant="default"
+                              className="bg-primary/10 text-primary border-primary/20 self-start"
+                            >
                               {t("current")}
                             </Badge>
                           )}
                         </div>
-                        <h4 className="text-lg font-medium text-primary mb-3">
+                        <h4 className="text-base sm:text-lg font-medium text-primary mb-3">
                           {exp.role[language as keyof typeof exp.role] || exp.role.en}
                         </h4>
                       </div>
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="outline" className="text-xs self-start">
                         {exp.type[language as keyof typeof exp.type] || exp.type.en}
                       </Badge>
                     </div>
 
                     {/* Meta Info */}
-                    <div className="flex flex-wrap gap-4 mb-4 text-sm text-muted-foreground">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        {exp.period}
+                        <Calendar className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                        <span>{exp.period}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <MapPin className="h-4 w-4" />
-                        {exp.location}
+                        <MapPin className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                        <span>{exp.location}</span>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                    <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
                       {exp.description[language as keyof typeof exp.description] || exp.description.en}
                     </p>
 
-                 {/* Achievement */}
-                    {exp.achievements[language as keyof typeof exp.achievements] || exp.achievements.en ? (
-                    <div className="flex items-center gap-2 mb-4 p-3 bg-primary/5 rounded-lg border border-primary/10">
-                        <TrendingUp className="h-4 w-4 text-primary" />
+                    {/* Achievement */}
+                    {(exp.achievements[language as keyof typeof exp.achievements] || exp.achievements.en) && (
+                      <div className="flex items-start gap-2 mb-4 p-3 bg-primary/5 rounded-lg border border-primary/10">
+                        <TrendingUp className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
                         <span className="text-sm font-medium text-primary">
-                        {exp.achievements[language as keyof typeof exp.achievements] || exp.achievements.en}
+                          {exp.achievements[language as keyof typeof exp.achievements] || exp.achievements.en}
                         </span>
-                    </div>
-                    ) : null}
+                      </div>
+                    )}
 
                     {/* Technologies */}
                     {exp.technologies.length > 0 && (
-                    <div className="lg:w-64">
-                        <h5 className="font-medium mb-3 text-foreground">
-                        {t("technologiesUsed")}
+                      <div className="mt-4">
+                        <h5 className="font-medium mb-3 text-foreground text-sm sm:text-base">
+                          {t("technologiesUsed")}
                         </h5>
                         <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, techIndex) => (
+                          {exp.technologies.map((tech, techIndex) => (
                             <Badge
-                            key={techIndex}
-                            variant="secondary"
-                            className="text-xs bg-secondary/50 hover:bg-secondary/80 transition-colors"
+                              key={techIndex}
+                              variant="secondary"
+                              className="text-xs bg-secondary/50 hover:bg-secondary/80 transition-colors"
                             >
-                            {tech}
+                              {tech}
                             </Badge>
-                        ))}
+                          ))}
                         </div>
-                    </div>
+                      </div>
                     )}
-                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -171,13 +179,11 @@ export function WorkExperienceSection() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">
-            {t("collaborateMessage")}
-          </p>
+        <div className="text-center mt-8 sm:mt-12 px-4">
+          <p className="text-muted-foreground mb-4 text-sm sm:text-base">{t("collaborateMessage")}</p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+            className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium text-sm sm:text-base"
           >
             {t("getInTouch")}
           </a>

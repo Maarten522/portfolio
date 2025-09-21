@@ -12,6 +12,7 @@ interface EducationItem {
   period: string
   description: string
   certificates?: string[]
+  vaardigheden?: string[]
   status: "completed" | "current" | "upcoming"
 }
 
@@ -20,13 +21,13 @@ const educationData = {
     {
       id: "master",
       institution: "University of Ghent",
-      degree: "Bachelor Applied Computer Science - Data & AI",
-      period: "2022 - 2025",
+      degree: "Master Industrial Sciences - Electronics-ICT",
+      period: "2025 - 2028",
       description:
-        "Specializing in data science, artificial intelligence, and machine learning. Focus on practical applications and real-world problem solving.",
-      certificates: ["Python Programming", "Data Analysis", "Machine Learning Fundamentals"],
-      vaardigheden: ["Python", "Machine Learning", "Data Analysis", "SQL", "TensorFlow", "PyTorch"],
-      status: "completed" as const,
+        "Focus on advanced technologies and in-depth knowledge in electronics and ICT. Aimed at innovation and research.",
+      certificates: [],
+      vaardigheden: [],
+      status: "current" as const,
     },
     {
       id: "bachelor",
@@ -35,7 +36,7 @@ const educationData = {
       period: "2022 - 2025",
       description:
         "Specializing in data science, artificial intelligence, and machine learning. Focus on practical applications and real-world problem solving.",
-      certificates: ["Python Programming", "Data Analysis", "Machine Learning Fundamentals"],
+      certificates: ["IBM Master The Mainframe", "Bachelor Applied Computer Science"],
       vaardigheden: ["Python", "Machine Learning", "Data Analysis", "SQL", "TensorFlow", "PyTorch"],
       status: "completed" as const,
     },
@@ -113,58 +114,60 @@ export function OpleidingSection() {
   const education = educationData[language]
 
   return (
-    <section id="education" className="py-20 bg-muted/20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section id="education" className="py-12 sm:py-16 lg:py-20 bg-muted/20">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <GraduationCap className="h-8 w-8 text-primary" />
-            <h2 className="text-4xl font-bold text-balance">{t.title}</h2>
+            <GraduationCap className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-balance">{t.title}</h2>
           </div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">{t.subtitle}</p>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty px-4">{t.subtitle}</p>
         </div>
 
         <div className="max-w-4xl mx-auto">
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent"></div>
+            <div className="hidden sm:block absolute left-6 lg:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent"></div>
 
-            <div className="space-y-12">
+            <div className="space-y-8 sm:space-y-12">
               {education.map((item, index) => (
-                <div key={item.id} className="relative flex items-start gap-8">
-                  {/* Timeline dot */}
+                <div key={item.id} className="relative flex items-start gap-4 sm:gap-6 lg:gap-8">
                   <div
-                    className={`relative z-10 flex items-center justify-center w-16 h-16 rounded-full border-4 ${
+                    className={`relative z-10 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full border-4 flex-shrink-0 ${
                       item.status === "current"
                         ? "bg-primary border-primary shadow-lg shadow-primary/25"
                         : "bg-background border-primary/30"
                     }`}
                   >
                     <GraduationCap
-                      className={`h-6 w-6 ${item.status === "current" ? "text-primary-foreground" : "text-primary"}`}
+                      className={`h-4 w-4 sm:h-6 sm:w-6 ${item.status === "current" ? "text-primary-foreground" : "text-primary"}`}
                     />
                   </div>
 
                   {/* Content card */}
                   <Card className="flex-1 border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <h3 className="text-xl font-semibold text-foreground mb-1">{item.degree}</h3>
-                          <p className="text-primary font-medium">{item.institution}</p>
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-6 gap-2">
+                        <div className="flex-1">
+                          <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-1">{item.degree}</h3>
+                          <p className="text-primary font-medium text-sm sm:text-base">{item.institution}</p>
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Calendar className="h-4 w-4" />
-                          <span>{item.period}</span>
-                          <Badge variant={item.status === "current" ? "default" : "secondary"}>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
+                            <span>{item.period}</span>
+                          </div>
+                          <Badge variant={item.status === "current" ? "default" : "secondary"} className="self-start">
                             {item.status === "current" ? t.current : t.completed}
                           </Badge>
                         </div>
                       </div>
 
-                      <p className="text-muted-foreground mb-4 text-pretty">{item.description}</p>
+                      <p className="text-muted-foreground mb-4 text-pretty text-sm sm:text-base leading-relaxed">
+                        {item.description}
+                      </p>
 
                       {item.certificates && item.certificates.length > 0 && (
-                        <div>
+                        <div className="mb-4">
                           <div className="flex items-center gap-2 mb-3">
                             <Award className="h-4 w-4 text-primary" />
                             <span className="text-sm font-medium text-foreground">{t.certificates}:</span>
@@ -178,9 +181,10 @@ export function OpleidingSection() {
                           </div>
                         </div>
                       )}
+
                       {item.vaardigheden && item.vaardigheden.length > 0 && (
                         <div>
-                          <div className="flex items-center gap-2 mt-4 mb-3">
+                          <div className="flex items-center gap-2 mb-3">
                             <Star className="h-4 w-4 text-primary" />
                             <span className="text-sm font-medium text-foreground">{t.vaardigheden}:</span>
                           </div>
