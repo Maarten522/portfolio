@@ -1,14 +1,43 @@
 "use client"
 
 import { useLanguage } from "@/hooks/use-language"
+import { useTypewriter } from "@/hooks/use-typewriter"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 
 export function HeroSection() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+
+  const subtitleWords =
+    language === "en"
+      ? [
+          "Specializing in Data & AI",
+          "Machine Learning",
+          "Graduate Applied Computer Science",
+          "Technology Enthusiast",
+          "Student Industrial Sciences",
+        ]
+      : [
+          "Gespecialiseerd in Data & AI",
+          "Machine Learning",
+          "Afgestudeerd student Toegepaste Informatica",
+          "Probleemoplosser",
+          "Student Industriële Wetenschappen",
+        ]
+
+  const typewriterText = useTypewriter({
+    words: subtitleWords,
+    typeSpeed: 100,
+    deleteSpeed: 50,
+    delayBetweenWords: 2000,
+  })
 
   const scrollToProjects = () => {
     const element = document.getElementById("projects")
+    element?.scrollIntoView({ behavior: "smooth" })
+  }
+  const scrollToAbout = () => {
+    const element = document.getElementById("about")
     element?.scrollIntoView({ behavior: "smooth" })
   }
 
@@ -30,7 +59,8 @@ export function HeroSection() {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 font-[family-name:var(--font-playfair)] text-balance">
             {t("heroTitle")}
           </h1>
-          <h2 className="text-2xl md:text-3xl text-primary mb-8 font-semibold">{t("heroSubtitle")}</h2>
+          <h2 className="text-2xl md:text-3xl text-primary mb-8 font-semibold"><span>{typewriterText}</span>
+            <span className="animate-pulse ml-1 text-primary">|</span></h2>
          
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -69,9 +99,9 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowDown className="h-6 w-6 text-muted-foreground" />
-      </div> */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <ArrowDown className="h-6 w-6 text-muted-foreground cursor-pointer" onClick={(scrollToAbout)}/>
+      </div>
     </section>
   )
 }
