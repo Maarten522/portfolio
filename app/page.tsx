@@ -9,6 +9,7 @@ import { HobbiesSection } from "@/components/hobbies-section"
 import { ContactSection } from "@/components/contact-section"
 import { OpleidingSection } from "@/components/opleiding-section"
 import { WorkExperienceSection } from "@/components/work-experiences"
+import { SkillsCarousel } from "@/components/skills-carousel"
 
 export default function Portfolio() {
   return (
@@ -19,6 +20,7 @@ export default function Portfolio() {
           <HeroSection />
           <AboutSection />
           <OpleidingSection />
+          <SkillsCarousel />
           <WorkExperienceSection />
           <ProjectsSection />
           <HobbiesSection />
