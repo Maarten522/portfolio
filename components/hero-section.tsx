@@ -5,7 +5,8 @@ import { useTypewriter } from "@/hooks/use-typewriter"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 
-const prefix = process.env.NODE_ENV === "production" ? "/portfolio" : ""
+const prefix = process.env.NODE_ENV === "production" && process.env.VERCEL !== "1" ? "/portfolio" : "";
+
 
 export function HeroSection() {
   const { t, language } = useLanguage()

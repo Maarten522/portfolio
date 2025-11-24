@@ -6,7 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
 
-const prefix = process.env.NODE_ENV === "production" ? "/portfolio" : ""
+const prefix = process.env.NODE_ENV === "production" && process.env.VERCEL !== "1" ? "/portfolio" : "";
+
 
 export function ProjectsSection() {
   const { t } = useLanguage()

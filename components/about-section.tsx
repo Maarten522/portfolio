@@ -5,10 +5,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Code, Database, Brain, TrendingUp } from "lucide-react"
 
 // Correct prefix (maakt afbeeldingen werkend op GitHub Pages)
-const prefix =
-  process.env.NODE_ENV === "production"
-    ? "/portfolio"
-    : ""
+const prefix = process.env.NODE_ENV === "production" && process.env.VERCEL !== "1" ? "/portfolio" : "";
+
 
 export function AboutSection() {
   const { t } = useLanguage()

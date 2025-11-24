@@ -1,12 +1,20 @@
 // next.config.mjs
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: "export",                 // verplicht voor GitHub Pages
-  images: {
-    unoptimized: true,              // nodig voor static export
-  },
-  basePath: "/portfolio",           // jouw repo-naam
-  assetPrefix: "/portfolio/",       // hoort dezelfde prefix te hebben
-};
 
-export default nextConfig;
+
+const isGitHubPages = process.env.VERCEL !== "1"
+
+const basePath = isGitHubPages ? "/portfolio" : ""
+const assetPrefix = isGitHubPages ? "/portfolio" : ""
+
+// Export config
+const nextConfig = {
+  output: "export",             // statische export nodig voor GitHub Pages
+  images: {
+    unoptimized: true,          // voorkomt problemen bij static export
+  },
+  basePath,
+  assetPrefix,
+}
+
+export default nextConfig
