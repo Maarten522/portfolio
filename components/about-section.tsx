@@ -4,6 +4,12 @@ import { useLanguage } from "@/hooks/use-language"
 import { Card, CardContent } from "@/components/ui/card"
 import { Code, Database, Brain, TrendingUp } from "lucide-react"
 
+// Correct prefix (maakt afbeeldingen werkend op GitHub Pages)
+const prefix =
+  process.env.NODE_ENV === "production"
+    ? "/portfolio"
+    : ""
+
 export function AboutSection() {
   const { t } = useLanguage()
 
@@ -24,7 +30,9 @@ export function AboutSection() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8 text-pretty">{t("aboutDescription")}</p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8 text-pretty">
+                {t("aboutDescription")}
+              </p>
 
               <div className="grid grid-cols-2 gap-4">
                 {skills.map((skill, index) => (
@@ -43,7 +51,14 @@ export function AboutSection() {
 
             <div className="relative">
               <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center">
-                <div className="text-6xl"><img src="/maarten.jpg" alt="" /></div>
+                <div className="text-6xl">
+                  {/* Corrected image path for GitHub Pages */}
+                  <img
+                    src={`${prefix}/maarten.jpg`}
+                    alt="Maarten"
+                    className="rounded-xl object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
