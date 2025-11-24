@@ -1,20 +1,17 @@
 // next.config.mjs
 /** @type {import('next').NextConfig} */
 
-
+// Check if we are on GitHub Pages (VERCEL env undefined)
 const isGitHubPages = process.env.VERCEL !== "1"
 
-const basePath = isGitHubPages ? "/portfolio" : ""
-const assetPrefix = isGitHubPages ? "/portfolio" : ""
-
-// Export config
+// basePath / assetPrefix instellen op GitHub Pages, root op Vercel
 const nextConfig = {
-  output: "export",             // statische export nodig voor GitHub Pages
+  output: "export",
   images: {
-    unoptimized: true,          // voorkomt problemen bij static export
+    unoptimized: true,
   },
-  basePath,
-  assetPrefix,
+  basePath: isGitHubPages ? "/portfolio" : "",
+  assetPrefix: isGitHubPages ? "/portfolio" : "",
 }
 
 export default nextConfig
