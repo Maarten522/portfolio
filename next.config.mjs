@@ -1,13 +1,12 @@
 // next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",              // nodig voor statische export (GitHub Pages)
+  output: "export",                 // verplicht voor GitHub Pages
   images: {
-    unoptimized: true,           // voorkomt problemen met next/image
+    unoptimized: true,              // nodig voor static export
   },
-  distDir: 'dist',
-  basePath: "/portfolio", // bv. "/portfolio"
-  assetPrefix: "/", // zorgt dat CSS/JS goed geladen wordt
+  basePath: "/portfolio",           // jouw repo-naam
+  assetPrefix: "/portfolio/",       // hoort dezelfde prefix te hebben
 };
 
 export default nextConfig;
