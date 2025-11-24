@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
 
+const prefix = process.env.NODE_ENV === "production" ? "/portfolio" : ""
+
 export function ProjectsSection() {
   const { t } = useLanguage()
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -15,15 +17,15 @@ export function ProjectsSection() {
     {
       title: t("project1Title"),
       description: t("project1Description"),
-      image: "/GIP.png",
-      video: "/eindwerk.mp4", // Voeg hier de videolink toe
+      image: `${prefix}/GIP.png`,
+      video: `${prefix}/eindwerk.mp4`, // Voeg hier de videolink toe
       code: "",
       tags: ["PLC", "Elektriciteit", "Mechanica"],
     },
     {
       title: t("project2Title"),
       description: t("project2Description"),
-      image: "/solar.png",
+      image: `${prefix}/solar.png`,
       video: "",
       code: "",
       tags: ["pandas", "scikit-learn", "Tensorflow"],
@@ -31,7 +33,7 @@ export function ProjectsSection() {
     {
       title: t("project3Title"),
       description: t("project3Description"),
-      image: "/chatbot.png",
+      image: `${prefix}/chatbot.png`,
       video: "",
       code: "",
       tags: ["NLP", "TensorFlow", "Node.js"],
@@ -65,7 +67,7 @@ export function ProjectsSection() {
                 <CardHeader className="p-0">
                   <div className="h-90 bg-muted rounded-t-lg overflow-hidden">
                     <img
-                      src={project.image || "/placeholder.svg"}
+                      src={project.image || `${prefix}/placeholder.svg`}
                       alt={project.title}
                       className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
