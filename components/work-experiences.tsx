@@ -4,6 +4,7 @@ import { useLanguage } from "@/hooks/use-language"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Building2, Calendar, MapPin, TrendingUp } from "lucide-react"
+import { nl } from "date-fns/locale"
 
 export function WorkExperienceSection() {
   const { language, t } = useLanguage()
@@ -15,7 +16,10 @@ export function WorkExperienceSection() {
         en: "Gamemaster",
         nl: "Gamemaster",
       },
-      period: "2023 - Present",
+      period: {
+        en: "2022 - Present",
+        nl: "2022 - Heden",
+      },
       location: "Gent, BE",
       type: {
         en: "Student-job",
@@ -25,7 +29,10 @@ export function WorkExperienceSection() {
         en: "Assisting customers with VR experiences, providing technical support, and ensuring smooth operation of the facility.",
         nl: "Helpen van klanten met VR-ervaringen, technische ondersteuning en zorgen voor een soepele werking van de faciliteit.",
       },
-      technologies: ["Customer Service", "Technical Support", "Teamwork"],
+      technologies: {
+        en: ["Customer Service", "Technical Support", "Teamwork"],
+        nl: ["Klantenservice", "Technische ondersteuning", "Teamwerk"],
+      },
       achievements: {
         en: "Excellent customer satisfaction ratings",
         nl: "Uitstekende klanttevredenheidscijfers",
@@ -38,7 +45,10 @@ export function WorkExperienceSection() {
         en: "Camp leader",
         nl: "Kampleiding",
       },
-      period: "2023 - Present",
+      period: {
+        en: "2023 - Present",
+        nl: "2023 - Heden",
+      },
       location: "Lochristi, BE",
       type: {
         en: "Volunteer",
@@ -48,10 +58,41 @@ export function WorkExperienceSection() {
         en: "Organizing and leading activities for children during summer and easter camps, ensuring a fun and safe environment.",
         nl: "Organiseren en leiden van activiteiten voor kinderen tijdens zomer- en paasvakanties, zorgen voor een leuke en veilige omgeving.",
       },
-      technologies: ["Leadership", "Event Planning", "Child Care"],
+      technologies: {
+        en: ["Leadership", "Event Planning", "Child Care"],
+        nl: ["Leiderschap", "Evenementenplanning", "Kinderopvang"],
+      },
       achievements: {
         en: "Successfully managed groups of 20+ children",
         nl: "Succesvol groepen van 20+ kinderen geleid",
+      },
+      current: true,
+    },
+    {
+      company: "Foodbar Margot",
+      role: {
+        en: "Waiter & bartender",
+        nl: "Ober & barman",
+      },
+      period: {
+        en: "2021 - 2022",
+        nl: "2021 - 2022",
+      },
+      location: "Laarne, BE",
+      type: {
+        en: "Student",
+        nl: "Student",
+      },
+      description: {
+        en: "Serving food and drinks, managing customer orders, and ensuring a pleasant dining experience.",
+        nl: "Opdienen van eten en drinken, opnemen van klantbestellingen en zorgen voor een aangename eetervaring.",
+      },
+      technologies: {
+        en: ["Serving", "Customer Service", "Independence"],
+        nl: ["Opdienen", "Klantvriendelijkheid", "Zelstandigheid"],
+      },
+      achievements: {
+     
       },
       current: true,
     },
@@ -61,7 +102,10 @@ export function WorkExperienceSection() {
         en: "Computer Vision Intern",
         nl: "Computer Vision Stagiair",
       },
-      period: "2025 (3 months)",
+      period: {
+        en: "2025 (3 months)",
+        nl: "2025 (3 maanden)",
+      },
       location: "Gent, BE",
       type: {
         en: "Internship",
@@ -71,7 +115,10 @@ export function WorkExperienceSection() {
         en: "Developed and trained segmentation networks to identify defects in steel production, improving quality control processes.",
         nl: "Ontwikkeld en getraind van segmentatienetwerken om defecten in staalproductie te identificeren, wat de kwaliteitscontroleprocessen verbeterde.",
       },
-      technologies: ["YoloV8", "CNN", "GroundingDino", "Python", "PyTorch", "Machine Learning"],
+      technologies: {
+        en: ["YoloV8", "CNN", "GroundingDino", "Python", "PyTorch", "Machine Learning"],
+        nl: ["YoloV8", "CNN", "GroundingDino", "Python", "PyTorch", "Machine Learning"],
+      },
       achievements: {
         en: "Finished different AI models for segmentation and fire detection",
         nl: "Verschillende AI-modellen voor segmentatie en branddetectie afgerond",
@@ -129,7 +176,7 @@ export function WorkExperienceSection() {
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <Calendar className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
-                        <span>{exp.period}</span>
+                        <span>{exp.period[language as keyof typeof exp.period] || exp.period.en}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <MapPin className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
@@ -153,13 +200,13 @@ export function WorkExperienceSection() {
                     )}
 
                     {/* Technologies */}
-                    {exp.technologies.length > 0 && (
+                    {exp.technologies[language as keyof typeof exp.technologies]?.length > 0 && (
                       <div className="mt-4">
                         <h5 className="font-medium mb-3 text-foreground text-sm sm:text-base">
                           {t("technologiesUsed")}
                         </h5>
                         <div className="flex flex-wrap gap-2">
-                          {exp.technologies.map((tech, techIndex) => (
+                          {exp.technologies[language as keyof typeof exp.technologies].map((tech, techIndex) => (
                             <Badge
                               key={techIndex}
                               variant="secondary"
