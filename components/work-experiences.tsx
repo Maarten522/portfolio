@@ -69,34 +69,6 @@ export function WorkExperienceSection() {
       current: true,
     },
     {
-      company: "Foodbar Margot",
-      role: {
-        en: "Waiter & bartender",
-        nl: "Ober & barman",
-      },
-      period: {
-        en: "2021 - 2022",
-        nl: "2021 - 2022",
-      },
-      location: "Laarne, BE",
-      type: {
-        en: "Student",
-        nl: "Student",
-      },
-      description: {
-        en: "Serving food and drinks, managing customer orders, and ensuring a pleasant dining experience.",
-        nl: "Opdienen van eten en drinken, opnemen van klantbestellingen en zorgen voor een aangename eetervaring.",
-      },
-      technologies: {
-        en: ["Serving", "Customer Service", "Independence"],
-        nl: ["Opdienen", "Klantvriendelijkheid", "Zelstandigheid"],
-      },
-      achievements: {
-     
-      },
-      current: true,
-    },
-    {
       company: "ArcelorMittal Gent",
       role: {
         en: "Computer Vision Intern",
@@ -124,6 +96,34 @@ export function WorkExperienceSection() {
         nl: "Verschillende AI-modellen voor segmentatie en branddetectie afgerond",
       },
       current: false,
+    },
+    {
+      company: "Foodbar Margot",
+      role: {
+        en: "Waiter & bartender",
+        nl: "Ober & barman",
+      },
+      period: {
+        en: "2021 - 2022",
+        nl: "2021 - 2022",
+      },
+      location: "Laarne, BE",
+      type: {
+        en: "Student",
+        nl: "Student",
+      },
+      description: {
+        en: "Serving food and drinks, managing customer orders, and ensuring a pleasant dining experience.",
+        nl: "Opdienen van eten en drinken, opnemen van klantbestellingen en zorgen voor een aangename eetervaring.",
+      },
+      technologies: {
+        en: ["Serving", "Customer Service", "Independence"],
+        nl: ["Opdienen", "Klantvriendelijkheid", "Zelstandigheid"],
+      },
+      achievements: {
+     
+      },
+      current: true,
     },
   ]
 
