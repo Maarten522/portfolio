@@ -4,6 +4,7 @@ import { useLanguage } from "@/hooks/use-language"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Github, Linkedin } from "lucide-react"
+import { IoLogoModelS } from "react-icons/io";
 
 export function ContactSection() {
   const { t } = useLanguage()
@@ -30,6 +31,13 @@ export function ContactSection() {
       href: "https://linkedin.com/in/maartenvds",
       color: "text-blue-400",
     },
+    // {
+    //   icon:  IoLogoModelS,
+    //   label: t("BambuLab"),
+    //   value: "makerworld.com",
+    //   href: "https://makerworld.com/nl/@Maarten522",
+    //   color: "text-blue-400",
+    // },
   ]
 
   return (

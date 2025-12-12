@@ -1,32 +1,33 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useLanguage } from "@/hooks/use-language"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
+import { useState } from "react";
+import { useLanguage } from "@/hooks/use-language";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Github } from "lucide-react";
 
-const prefix = process.env.NODE_ENV === "production" && process.env.VERCEL !== "1" ? "/portfolio" : "";
-
+const prefix = process.env.VERCEL !== "1"
+    ? "/portfolio"
+    : "";
 
 export function ProjectsSection() {
-  const { t } = useLanguage()
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [currentVideo, setCurrentVideo] = useState<string | null>(null)
+  const { t } = useLanguage();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState<string | null>(null);
 
   const projects = [
     {
       title: t("project1Title"),
       description: t("project1Description"),
-      image: `${prefix}/GIP.png`,
-      video: `${prefix}/eindwerk.mp4`, // Voeg hier de videolink toe
+      image: `${prefix}/images/GIP.png`,
+      video: `${prefix}/videos/eindwerk.mp4`, // Voeg hier de videolink toe
       code: "",
       tags: ["PLC", "Elektriciteit", "Mechanica"],
     },
     {
       title: t("project2Title"),
       description: t("project2Description"),
-      image: `${prefix}/solar.png`,
+      image: `${prefix}/images/solar.png`,
       video: "",
       code: "",
       tags: ["pandas", "scikit-learn", "Tensorflow"],
@@ -34,22 +35,22 @@ export function ProjectsSection() {
     {
       title: t("project3Title"),
       description: t("project3Description"),
-      image: `${prefix}/chatbot.png`,
+      image: `${prefix}/images/chatbot.png`,
       video: "",
       code: "",
       tags: ["NLP", "TensorFlow", "Node.js"],
     },
-  ]
+  ];
 
   const openModal = (video: string) => {
-    setCurrentVideo(video)
-    setIsModalOpen(true)
-  }
+    setCurrentVideo(video);
+    setIsModalOpen(true);
+  };
 
   const closeModal = () => {
-    setCurrentVideo(null)
-    setIsModalOpen(false)
-  }
+    setCurrentVideo(null);
+    setIsModalOpen(false);
+  };
 
   return (
     <section id="projects" className="py-20 bg-card/50">
@@ -68,19 +69,26 @@ export function ProjectsSection() {
                 <CardHeader className="p-0">
                   <div className="h-90 bg-muted rounded-t-lg overflow-hidden">
                     <img
-                      src={project.image || `${prefix}/placeholder.svg`}
+                      src={project.image || `${prefix}/images/placeholder.svg`}
                       alt={project.title}
                       className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 </CardHeader>
                 <CardContent className="p-6">
-                  <CardTitle className="mb-3 text-xl">{project.title}</CardTitle>
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{project.description}</p>
+                  <CardTitle className="mb-3 text-xl">
+                    {project.title}
+                  </CardTitle>
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">
+                      <span
+                        key={tagIndex}
+                        className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md"
+                      >
                         {tag}
                       </span>
                     ))}
@@ -137,5 +145,5 @@ export function ProjectsSection() {
         </div>
       )}
     </section>
-  )
+  );
 }

@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Code, Database, Brain, TrendingUp } from "lucide-react"
 
 // Correct prefix (maakt afbeeldingen werkend op GitHub Pages)
-const prefix = process.env.NODE_ENV === "production" && process.env.VERCEL !== "1" ? "/portfolio" : "";
+const prefix = process.env.VERCEL !== "1" ? "/portfolio" : "";
 
 
 export function AboutSection() {
@@ -52,7 +52,7 @@ export function AboutSection() {
                 <div className="text-6xl">
                   {/* Corrected image path for GitHub Pages */}
                   <img
-                    src={`${prefix}/maarten.jpg`}
+                    src={`${prefix}/images/maarten.jpg`}
                     alt="Maarten"
                     className="rounded-xl object-cover"
                   />

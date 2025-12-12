@@ -5,7 +5,7 @@ import { useTypewriter } from "@/hooks/use-typewriter"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 
-const prefix = process.env.NODE_ENV === "production" && process.env.VERCEL !== "1" ? "/portfolio" : "";
+const prefix = process.env.VERCEL !== "1" ? "/portfolio" : "";
 
 
 export function HeroSection() {
@@ -51,7 +51,7 @@ export function HeroSection() {
           <div className="mb-8">
             <div className="relative w-40 h-40 md:w-60 md:h-60 mx-auto mt-30 mb-10">
               <img
-                src={`${prefix}/cartoon.png`}
+                src={`${prefix}/images/cartoon.png`}
                 alt="Profile picture"
                 className="w-full h-full rounded-full object-cover border-4 border-primary/20 shadow-2xl"
               />
