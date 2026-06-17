@@ -5,10 +5,20 @@ import { useLanguage } from "@/hooks/use-language";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const prefix = process.env.VERCEL !== "1"
     ? "/portfolio"
     : "";
+
+const GRID_THRESHOLD = 3;
 
 export function ProjectsSection() {
   const { t } = useLanguage();
@@ -20,8 +30,9 @@ export function ProjectsSection() {
       title: t("project1Title"),
       description: t("project1Description"),
       image: `${prefix}/images/GIP.png`,
-      video: `${prefix}/videos/eindwerk.mp4`, // Voeg hier de videolink toe
+      video: `${prefix}/videos/eindwerk.mp4`,
       code: "",
+      website: "",
       tags: ["PLC", "Elektriciteit", "Mechanica"],
     },
     {
@@ -30,6 +41,7 @@ export function ProjectsSection() {
       image: `${prefix}/images/solar.png`,
       video: "",
       code: "",
+      website: "",
       tags: ["pandas", "scikit-learn", "Tensorflow"],
     },
     {
@@ -38,7 +50,17 @@ export function ProjectsSection() {
       image: `${prefix}/images/chatbot.png`,
       video: "",
       code: "",
+      website: "",
       tags: ["NLP", "TensorFlow", "Node.js"],
+    },
+    {
+      title: t("project4Title"),
+      description: t("project4Description"),
+      image: `${prefix}/images/3DPrint.png`,
+      video: "",
+      code: "",
+      website: "https://makerworld.com/nl/@Maarten522",
+      tags: ["Fusion 360","SolidWorks", "Bambu Studio", "3D Printing"],
     },
   ];
 
@@ -52,6 +74,73 @@ export function ProjectsSection() {
     setIsModalOpen(false);
   };
 
+  const useCarousel = projects.length > GRID_THRESHOLD;
+
+  const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
+    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border h-full">
+      <CardHeader className="p-0">
+        <div className="h-48 bg-muted rounded-t-lg overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      </CardHeader>
+      <CardContent className="p-6">
+        <CardTitle className="mb-3 text-xl">{project.title}</CardTitle>
+        <p className="text-muted-foreground mb-4 text-sm leading-relaxed line-clamp-4">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.map((tag, tagIndex) => (
+            <span
+              key={tagIndex}
+              className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="flex gap-2">
+          {project.code && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex-1 bg-transparent"
+              onClick={() => window.open(project.code, "_blank")}
+            >
+              <Github className="h-4 w-4 mr-2" />
+              Code
+            </Button>
+          )}
+          {project.video && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex-1 bg-transparent"
+              onClick={() => openModal(project.video)}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Demo
+            </Button>
+          )}
+          {project.website && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex-1 bg-transparent"
+              onClick={() => window.open(project.website, "_blank")}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Voorbeeld
+            </Button>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+
   return (
     <section id="projects" className="py-20 bg-card/50">
       <div className="container mx-auto px-4">
@@ -60,72 +149,31 @@ export function ProjectsSection() {
             {t("projectsTitle")}
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border"
-              >
-                <CardHeader className="p-0">
-                  <div className="h-90 bg-muted rounded-t-lg overflow-hidden">
-                    <img
-                      src={project.image || `${prefix}/images/placeholder.svg`}
-                      alt={project.title}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <CardTitle className="mb-3 text-xl">
-                    {project.title}
-                  </CardTitle>
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-2">
-                    {project.code && ( // Controleer of er een code-link is
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 bg-transparent"
-                        onClick={() => window.open(project.code, "_blank")}
-                      >
-                        <Github className="h-4 w-4 mr-2" />
-                        Code
-                      </Button>
-                    )}
-                    {project.video && ( // Controleer of er een video is
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 bg-transparent"
-                        onClick={() => openModal(project.video)}
-                      >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Demo
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {useCarousel ? (
+            <Carousel
+              opts={{ align: "start", loop: true }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {projects.map((project, index) => (
+                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <ProjectCard project={project} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="-left-4 md:-left-6" />
+              <CarouselNext className="-right-4 md:-right-6" />
+            </Carousel>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <ProjectCard key={index} project={project} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Video Modal */}
       {isModalOpen && currentVideo && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg overflow-hidden shadow-lg max-w-3xl w-full">

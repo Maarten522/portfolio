@@ -60,6 +60,10 @@ const translations = {
     project2Description: "In dit project heb ik een script gemaakt dat de opbrengst van zonnepanelen voorspelt op basis van weergegevens. Het programma gebruikt historische weergegevens om een model te trainen dat de opbrengst van zonnepanelen in realtime kan voorspellen. Dit is nuttig voor het optimaliseren van energieverbruik en het plannen van energieproductie.",
     project3Title: "AI Chatbot - Bachelorproef",
     project3Description: "Voor mijn bachelorproef heb ik een AI-chatbot ontwikkeld voor ArcelorMittal, een staalproductiebedrijf. De chatbot is ontworpen om medewerkers te helpen bij het zoeken naar informatie over het staalproces.",
+    project4Title: "3D Print Projecten",
+    project4Description: "In mijn vrije tijd ontwerp en print ik allerlei 3D-modellen. Van functionele onderdelen tot decoratieve items, ik gebruik software zoals Solidworks en Bambu Studio om mijn ideeën tot leven te brengen.",
+    project5Title: "Studie Project - IoT Dashboard",
+    project5Description: "Een IoT-dashboard ontwikkeld als studieproject waarbij sensordata van verschillende apparaten in realtime wordt weergegeven. Het project combineert hardware met een webinterface voor datavisualisatie.",
 
     // Hobby's Sectie
     hobbiesTitle: "Mijn Hobby's",
@@ -128,6 +132,10 @@ const translations = {
     project2Description: "In this project, I created a program that predicts the output of solar panels based on weather data. The program uses historical weather data to train a model that can predict the output of solar panels in real-time. This is useful for optimizing energy consumption and planning energy production.",
     project3Title: "AI Chatbot - Bachelor Thesis",
     project3Description: "For my thesis, I developed an AI chatbot for ArcelorMittal, a steel manufacturing company. The chatbot is designed to assist employees searching for information in the steelprocess.",
+    project4Title: "3D Printing Projects",
+    project4Description: "In my free time I design and print all kinds of 3D objects. From functional parts to decorative items, I use software like Solidworks and Bambu Studio to bring my ideas to life.",
+    project5Title: "Study Project - IoT Dashboard",
+    project5Description: "An IoT dashboard developed as a study project where sensor data from various devices is displayed in real time. The project combines hardware with a web interface for data visualization.",
 
     // Hobbies Section
     hobbiesTitle: "My Hobbies",
