@@ -26,7 +26,7 @@ const educationData = {
       description:
         "Focus on advanced technologies and in-depth knowledge in electronics and ICT. Aimed at innovation and research.",
       certificates: [],
-      vaardigheden: [],
+      vaardigheden: ["Embedded Systems", "Analog and Digital Electronics", "Communication Technologies"],
       status: "current" as const,
     },
     {
@@ -61,7 +61,7 @@ const educationData = {
       description:
         "Focus op geavanceerde technologieën en diepgaande kennis in elektronica en ICT. Gericht op innovatie en onderzoek.",
       certificates: [],
-      vaardigheden: [],
+      vaardigheden: ["Ingebedde Systemen", "Analoge en Digitale Elektronica", "Communicatietechnologieën"],
       status: "current" as const,
     },
     {
