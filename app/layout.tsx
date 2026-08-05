@@ -6,6 +6,8 @@ import { Montserrat } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { LanguageProvider } from "@/hooks/use-language"
+import { ThemeProvider } from "@/components/theme-provider"
+import { ScrollProgress } from "@/components/scroll-progress"
 import "./globals.css"
 
 const montserrat = Montserrat({
@@ -15,9 +17,14 @@ const montserrat = Montserrat({
 })
 
 
+const basePath = process.env.VERCEL !== "1" ? "/portfolio" : "";
+
 export const metadata: Metadata = {
   title: "Portfolio - Maarten Van der Schueren",
   description: "Portfolio Maarten Van der Schueren",
+  icons: {
+    icon: `${basePath}/images/favicon.png`,
+  },
 }
 
 export default function RootLayout({
@@ -26,12 +33,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="nl" className="dark">
+    <html lang="nl" suppressHydrationWarning>
       <body className={`font-sans  ${GeistSans.variable} ${GeistMono.variable} ${montserrat.variable}`}>
-        <LanguageProvider>
-          <Suspense fallback={null}>{children}</Suspense>
-        </LanguageProvider>
-        <Analytics />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <ScrollProgress />
+          <LanguageProvider>
+            <Suspense fallback={null}>{children}</Suspense>
+          </LanguageProvider>
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )

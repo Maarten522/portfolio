@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useLanguage } from "@/hooks/use-language";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, X, Play } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -14,18 +14,25 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-const prefix = process.env.VERCEL !== "1"
-    ? "/portfolio"
-    : "";
+const prefix = process.env.VERCEL !== "1" ? "/portfolio" : "";
 
 const GRID_THRESHOLD = 3;
 
+type Project = {
+  title: string;
+  description: string;
+  image: string;
+  video: string;
+  code: string;
+  website: string;
+  tags: string[];
+};
+
 export function ProjectsSection() {
   const { t } = useLanguage();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentVideo, setCurrentVideo] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const projects = [
+  const projects: Project[] = [
     {
       title: t("project1Title"),
       description: t("project1Description"),
@@ -36,15 +43,6 @@ export function ProjectsSection() {
       tags: ["PLC", "Elektriciteit", "Mechanica"],
     },
     {
-      title: t("project2Title"),
-      description: t("project2Description"),
-      image: `${prefix}/images/solar.png`,
-      video: "",
-      code: "",
-      website: "",
-      tags: ["pandas", "scikit-learn", "Tensorflow"],
-    },
-    {
       title: t("project3Title"),
       description: t("project3Description"),
       image: `${prefix}/images/chatbot.png`,
@@ -53,31 +51,44 @@ export function ProjectsSection() {
       website: "",
       tags: ["NLP", "TensorFlow", "Node.js"],
     },
-    {
+     {
       title: t("project4Title"),
       description: t("project4Description"),
       image: `${prefix}/images/3DPrint.png`,
       video: "",
       code: "",
       website: "https://makerworld.com/nl/@Maarten522",
-      tags: ["Fusion 360","SolidWorks", "Bambu Studio", "3D Printing"],
+      tags: ["Fusion 360", "SolidWorks", "Bambu Studio", "3D Printing"],
     },
+    {
+      title: t("project5Title"),
+      description: t("project5Description"),
+      image: `${prefix}/images/magiccompass.png`,
+      video: `${prefix}/videos/magisch kompas.mp4`,
+      code: "",
+      website: "",
+      tags: ["Electronics", "Arduino", "Soldering", "3D Printing"],
+    },
+     
+    {
+      title: t("project2Title"),
+      description: t("project2Description"),
+      image: `${prefix}/images/solar.png`,
+      video: "",
+      code: "",
+      website: "",
+      tags: ["pandas", "scikit-learn", "Tensorflow"],
+    },
+    
   ];
-
-  const openModal = (video: string) => {
-    setCurrentVideo(video);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setCurrentVideo(null);
-    setIsModalOpen(false);
-  };
 
   const useCarousel = projects.length > GRID_THRESHOLD;
 
-  const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
-    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border h-full">
+  const ProjectCard = ({ project }: { project: Project }) => (
+    <Card
+      className="group cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card border-border h-full"
+      onClick={() => setSelectedProject(project)}
+    >
       <CardHeader className="p-0">
         <div className="h-48 bg-muted rounded-t-lg overflow-hidden">
           <img
@@ -89,54 +100,17 @@ export function ProjectsSection() {
       </CardHeader>
       <CardContent className="p-6">
         <CardTitle className="mb-3 text-xl">{project.title}</CardTitle>
-        <p className="text-muted-foreground mb-4 text-sm leading-relaxed line-clamp-4">
+        <p className="text-muted-foreground mb-4 text-sm leading-relaxed line-clamp-3">
           {project.description}
         </p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag, tagIndex) => (
-            <span
-              key={tagIndex}
-              className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md"
-            >
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag, i) => (
+            <span key={i} className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">
               {tag}
             </span>
           ))}
         </div>
-        <div className="flex gap-2">
-          {project.code && (
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex-1 bg-transparent"
-              onClick={() => window.open(project.code, "_blank")}
-            >
-              <Github className="h-4 w-4 mr-2" />
-              Code
-            </Button>
-          )}
-          {project.video && (
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex-1 bg-transparent"
-              onClick={() => openModal(project.video)}
-            >
-              <ExternalLink className="h-4 w-4 mr-2" />
-              Demo
-            </Button>
-          )}
-          {project.website && (
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex-1 bg-transparent"
-              onClick={() => window.open(project.website, "_blank")}
-            >
-              <ExternalLink className="h-4 w-4 mr-2" />
-              Voorbeeld
-            </Button>
-          )}
-        </div>
+        <p className="mt-4 text-xs text-muted-foreground/60 italic">{t("clickForInfo")}</p>
       </CardContent>
     </Card>
   );
@@ -152,6 +126,7 @@ export function ProjectsSection() {
           {useCarousel ? (
             <Carousel
               opts={{ align: "start", loop: true }}
+              plugins={[Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true })]}
               className="w-full"
             >
               <CarouselContent className="-ml-4">
@@ -174,20 +149,83 @@ export function ProjectsSection() {
         </div>
       </div>
 
-      {isModalOpen && currentVideo && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg overflow-hidden shadow-lg max-w-3xl w-full">
-            <div className="relative">
-              <video controls autoPlay muted loop className="w-full">
-                <source src={currentVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+      {/* Project detail modal */}
+      {selectedProject && (
+        <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="bg-card border border-border rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header afbeelding */}
+            <div className="relative h-56 bg-muted rounded-t-2xl overflow-hidden">
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-full object-contain"
+              />
               <button
-                onClick={closeModal}
-                className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-2"
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-3 right-3 bg-background/80 hover:bg-background text-foreground rounded-full p-1.5 transition-colors"
               >
-                ✕
+                <X className="h-5 w-5" />
               </button>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 space-y-4">
+              <h3 className="text-2xl font-bold font-[family-name:var(--font-playfair)]">
+                {selectedProject.title}
+              </h3>
+
+              <div className="flex flex-wrap gap-2">
+                {selectedProject.tags.map((tag, i) => (
+                  <span key={i} className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {selectedProject.description}
+              </p>
+
+              {/* Video */}
+              {selectedProject.video && (
+                <div className="rounded-xl overflow-hidden bg-black">
+                  <video controls className="w-full max-h-72">
+                    <source src={selectedProject.video} type="video/mp4" />
+                  </video>
+                </div>
+              )}
+
+              {/* Knoppen */}
+              {(selectedProject.code || selectedProject.website) && (
+                <div className="flex gap-3 pt-2">
+                  {selectedProject.code && (
+                    <Button
+                      variant="outline"
+                      className="flex-1 bg-transparent"
+                      onClick={() => window.open(selectedProject.code, "_blank")}
+                    >
+                      <Github className="h-4 w-4 mr-2" />
+                      Code
+                    </Button>
+                  )}
+                  {selectedProject.website && (
+                    <Button
+                      variant="outline"
+                      className="flex-1 bg-transparent"
+                      onClick={() => window.open(selectedProject.website, "_blank")}
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Bekijk project
+                    </Button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

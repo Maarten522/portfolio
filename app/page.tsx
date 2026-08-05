@@ -10,6 +10,7 @@ import { ContactSection } from "@/components/contact-section"
 import { OpleidingSection } from "@/components/opleiding-section"
 import { WorkExperienceSection } from "@/components/work-experiences"
 import { SkillsCarousel } from "@/components/skills-carousel"
+import { FadeInSection } from "@/components/fade-in-section"
 
 export default function Portfolio() {
   return (
@@ -18,13 +19,13 @@ export default function Portfolio() {
         <PortfolioHeader />
         <main>
           <HeroSection />
-          <AboutSection />
-          <OpleidingSection />
-          <SkillsCarousel />
-          <WorkExperienceSection />
-          <ProjectsSection />
-          <HobbiesSection />
-          <ContactSection />
+          <FadeInSection><AboutSection /></FadeInSection>
+          <FadeInSection><OpleidingSection /></FadeInSection>
+          <FadeInSection><SkillsCarousel /></FadeInSection>
+          <FadeInSection><WorkExperienceSection /></FadeInSection>
+          <FadeInSection><ProjectsSection /></FadeInSection>
+          <FadeInSection><HobbiesSection /></FadeInSection>
+          <FadeInSection><ContactSection /></FadeInSection>
         </main>
 
         <footer className="py-8 text-center text-muted-foreground border-t border-border">
