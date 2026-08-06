@@ -49,12 +49,12 @@ export function SkillsCarousel() {
         </h3>
 
         <div className="overflow-hidden">
-          <div className="flex animate-scroll gap-8 sm:gap-12">
+          <div className="flex animate-scroll">
             {/* Original set */}
             {skills.map((skill, index) => (
               <div
                 key={`original-${index}`}
-                className="flex-shrink-0 flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-lg bg-background/50 border border-border/50 hover:border-primary/50 hover:bg-background/80 transition-all duration-300 group"
+                className="flex-shrink-0 flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 mr-8 sm:mr-12 rounded-lg bg-background/50 border border-border/50 hover:border-primary/50 hover:bg-background/80 transition-all duration-300 group"
               >
                 <div className="flex flex-col items-center justify-center gap-2">
                   <skill.icon
@@ -70,7 +70,7 @@ export function SkillsCarousel() {
             {skills.map((skill, index) => (
               <div
                 key={`duplicate-${index}`}
-                className="flex-shrink-0 flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-lg bg-background/50 border border-border/50 hover:border-primary/50 hover:bg-background/80 transition-all duration-300 group"
+                className="flex-shrink-0 flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 mr-8 sm:mr-12 rounded-lg bg-background/50 border border-border/50 hover:border-primary/50 hover:bg-background/80 transition-all duration-300 group"
               >
                 <div className="flex flex-col items-center justify-center gap-2">
                   <skill.icon
