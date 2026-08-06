@@ -10,8 +10,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isGitHubPages ? "/portfolio" : "",
-  assetPrefix: isGitHubPages ? "/portfolio" : "",
+  basePath: isGitHubPages ? "" : "",
+  assetPrefix: isGitHubPages ? "" : "",
 }
 
 export default nextConfig
