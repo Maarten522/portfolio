@@ -4,10 +4,6 @@ import { useLanguage } from "@/hooks/use-language"
 import { Card, CardContent } from "@/components/ui/card"
 import { Code, Database, Brain, TrendingUp } from "lucide-react"
 
-// Correct prefix (maakt afbeeldingen werkend op GitHub Pages)
-const prefix = process.env.VERCEL !== "1" ? "/portfolio" : "";
-
-
 export function AboutSection() {
   const { t } = useLanguage()
 
@@ -52,7 +48,7 @@ export function AboutSection() {
                 <div className="text-6xl">
                   {/* Corrected image path for GitHub Pages */}
                   <img
-                    src={`${prefix}/images/maarten.jpg`}
+                    src="/images/maarten.jpg"
                     alt="Maarten"
                     className="rounded-xl object-cover"
                   />

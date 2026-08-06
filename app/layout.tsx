@@ -17,13 +17,11 @@ const montserrat = Montserrat({
 })
 
 
-const basePath = process.env.VERCEL !== "1" ? "/portfolio" : "";
-
 export const metadata: Metadata = {
   title: "Portfolio - Maarten Van der Schueren",
   description: "Portfolio Maarten Van der Schueren",
   icons: {
-    icon: `${basePath}/images/favicon.png`,
+    icon: "/images/favicon.png",
   },
 }
 

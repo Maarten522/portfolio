@@ -19,9 +19,6 @@ import {
 } from "react-icons/si"
 
 import { FaGithub, FaJava, FaLinux } from "react-icons/fa";
-const prefix = process.env.VERCEL !== "1"
-    ? "/portfolio"
-    : "";
 
 const skills = [
   { icon: SiPython, name: "Python", color: "#3776AB" },

@@ -14,8 +14,6 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-const prefix = process.env.VERCEL !== "1" ? "/portfolio" : "";
-
 const GRID_THRESHOLD = 3;
 
 type Project = {
@@ -36,8 +34,8 @@ export function ProjectsSection() {
     {
       title: t("project1Title"),
       description: t("project1Description"),
-      image: `${prefix}/images/GIP.png`,
-      video: `${prefix}/videos/eindwerk.mp4`,
+      image: "/images/GIP.png",
+      video: "/videos/eindwerk.mp4",
       code: "",
       website: "",
       tags: ["PLC", "Elektriciteit", "Mechanica"],
@@ -45,7 +43,7 @@ export function ProjectsSection() {
     {
       title: t("project3Title"),
       description: t("project3Description"),
-      image: `${prefix}/images/chatbot.png`,
+      image: "/images/chatbot.png",
       video: "",
       code: "",
       website: "",
@@ -54,7 +52,7 @@ export function ProjectsSection() {
      {
       title: t("project4Title"),
       description: t("project4Description"),
-      image: `${prefix}/images/3DPrint.png`,
+      image: "/images/3DPrint.png",
       video: "",
       code: "",
       website: "https://makerworld.com/nl/@Maarten522",
@@ -63,8 +61,8 @@ export function ProjectsSection() {
     {
       title: t("project5Title"),
       description: t("project5Description"),
-      image: `${prefix}/images/magiccompass.png`,
-      video: `${prefix}/videos/magisch kompas.mp4`,
+      image: "/images/magiccompass.PNG",
+      video: "/videos/magisch kompas.mp4",
       code: "",
       website: "",
       tags: ["Electronics", "Arduino", "Soldering", "3D Printing"],
@@ -73,7 +71,7 @@ export function ProjectsSection() {
     {
       title: t("project2Title"),
       description: t("project2Description"),
-      image: `${prefix}/images/solar.png`,
+      image: "/images/solar.png",
       video: "",
       code: "",
       website: "",
