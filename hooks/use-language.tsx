@@ -49,7 +49,7 @@ const translations = {
 
     // Over Sectie
     aboutTitle: "Over Mij",
-    aboutDescription: `Ik ben ${calculateAge("2004-08-17")} jaar en heb een passie voor technologie. In mijn studie Toegepaste Informatica verdiep ik me in AI en databeheer, essentiële elementen in de wereld van vandaag. Met mijn achtergrond in Elektromechanica wil ik technologie en industrie samenbrengen om bij te dragen aan de innovaties van morgen.`,
+    aboutDescription: `Aangenaam! Ik ben Maarten, ${calculateAge("2004-08-17")} jaar en heb een passie voor praktijk en technologie. Momenteel ben ik een schakelstudent in faculteit Ingenieurs-wetenschappen aan de UGent. Na mijn studie Toegepaste Informatica AI & Data Engineering, wou ik me nog meer verdiepen op hands-on specialisaties. Door mijn vooropleiding Elektromechanica in het secundair onderwijs en mijn bachelor Informatica, leek Elektronica-ICT een evidente keuze. Naast mijn opleiding hou ik mij in m'n vrije tijd ook met verschillende zaken bezig die hieronder terug te vinden zijn!`,
 
     // Projecten Sectie
     projectsTitle: "Uitgelichte Projecten",
@@ -73,13 +73,13 @@ const translations = {
     hobbiesTitle: "Mijn Hobby's",
     hobby1: "Fotografie",
     hobby1Description:
-      "Momenten vastleggen door de lens van mijn camera om herinneringen te bewaren en creatieve perspectieven te verkennen.",
+      "Met mijn camera maak ik graag foto's van natuur en cultuur. Meestal focus ik mij op zaken waarbij ik kan spelen met shuttertijden en diafragma waarden.",
     hobby2: "Gamen",
     hobby2Description:
-      "Avonturen- en schietspellen spelen met vrienden in mijn vrije tijd.",
+      "Als ontspanning speel ik af en toe wel computergames. Ik heb het meeste affiniteit met actie of competitieve games.",
     hobby3: "Muziek",
     hobby3Description:
-      "In mijn vrije tijd piano en drum spelen om te ontspannen en creativiteit te uiten.",
+      "In mijn vrije tijd luister ik vaak muziek zoals Jazz, Rock en pop. Naast muziek luisteren speel ik zelf ook Piano & Drum",
     hobby4: "Techniek",
     hobby4Description:
       "Mechanische en elektronische projecten tekenen en bouwen in mijn vrije tijd, zoals 3D-printen en Arduino-projecten.",
@@ -111,7 +111,7 @@ const translations = {
 
     // About Section
     aboutTitle: "About Me",
-    aboutDescription: `I am ${calculateAge("2004-08-17")} years old and have a passion for technology. In my Applied Computer Science studies, I am immersed in AI and data management, essential elements in today's world. With my background in Electromechanics, I want to bring technology and industry together to contribute to tomorrow's innovations.`,
+    aboutDescription: `Nice to meet you! I'm Maarten, ${calculateAge("2004-08-17")} years old, and I have a passion for hands-on work and technology. I'm currently a bridging student in the Faculty of Engineering at Ghent University. After finishing my degree in Applied Informatics – AI & Data Engineering, I wanted to dive deeper into hands-on specializations. Thanks to my background in Electromechanics in secondary school and my bachelor's in Informatics, Electronics-ICT felt like an obvious choice. Besides my studies, I spend my free time on various things you can find below!`,
 
     // work Section
     workExperience: "Work Experience",

@@ -22,7 +22,7 @@ export function HeroSection() {
           "Machine Learning",
           "Afgestudeerd student Toegepaste Informatica",
           "Probleemoplosser",
-          "Student Industriële Wetenschappen",
+          "Schakelstudent Industriëel Ingenieur",
         ]
 
   const typewriterText = useTypewriter({
