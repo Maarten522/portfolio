@@ -86,6 +86,8 @@ const translations = {
 
     // Contact Sectie
     clickForInfo: "Klik voor meer info",
+    showPhotos: "Bekijk mijn foto's",
+    hidePhotos: "Verberg foto's",
     contactTitle: "Neem Contact Op",
     contactDescription:
       "Neem gerust contact op als een praatje wilt maken of meer wilt te weten komen!",
@@ -173,6 +175,8 @@ const translations = {
 
     // Contact Section
     clickForInfo: "Click for more info",
+    showPhotos: "View my photos",
+    hidePhotos: "Hide photos",
     contactTitle: "Get In Touch",
     contactDescription:
       "Feel free to reach out if you want to collaborate or just have a chat!",
