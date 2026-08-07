@@ -2,17 +2,19 @@ import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
-import { Montserrat } from "next/font/google"
+import localFont from "next/font/local"
 import { Suspense } from "react"
 import { LanguageProvider } from "@/hooks/use-language"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ScrollProgress } from "@/components/scroll-progress"
 import "./globals.css"
 
-const montserrat = Montserrat({
-  subsets: ["latin"],      // altijd nodig
-  weight: ["400", "700"],  // optioneel, selecteer de gewichten die je gebruikt
-  variable: "--font-montserrat", // voor Tailwind/Custom Properties
+const montserrat = localFont({
+  src: [
+    { path: "../public/fonts/Montserrat-Regular.ttf", weight: "400" },
+    { path: "../public/fonts/Montserrat-Bold.ttf", weight: "700" },
+  ],
+  variable: "--font-montserrat",
 })
 
 
@@ -31,9 +33,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" suppressHydrationWarning>
-      <head>
-      </head>
-      <body className={`font-sans  ${GeistSans.variable} ${GeistMono.variable} ${montserrat.variable}`}>
+      <head />
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${montserrat.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <ScrollProgress />
           <LanguageProvider>
