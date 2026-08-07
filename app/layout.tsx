@@ -17,12 +17,28 @@ const montserrat = localFont({
   variable: "--font-montserrat",
 })
 
-
 export const metadata: Metadata = {
   title: "Portfolio - Maarten Van der Schueren",
-  description: "Portfolio Maarten Van der Schueren",
+  description: "Portfolio van Maarten Van der Schueren — Bachelor Toegepaste Informatica, gepassioneerd door AI, data en techniek.",
   icons: {
     icon: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
+  openGraph: {
+    title: "Portfolio - Maarten Van der Schueren",
+    description: "Bachelor Toegepaste Informatica | AI · Data · Elektromechanica",
+    url: "https://maartenvds.be",
+    siteName: "Maarten Van der Schueren",
+    images: [
+      {
+        url: "https://maartenvds.be/images/maarten.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Portfolio Maarten Van der Schueren",
+      },
+    ],
+    locale: "nl_BE",
+    type: "website",
   },
 }
 
