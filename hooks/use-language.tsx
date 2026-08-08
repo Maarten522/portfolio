@@ -94,6 +94,11 @@ const translations = {
     email: "E-mail",
     github: "GitHub",
     linkedin: "LinkedIn",
+
+    // 404 Pagina
+    notFoundTitle: "Pagina niet gevonden",
+    notFoundDescription: "Oeps, deze pagina bestaat niet (meer). Misschien is het adres verkeerd getypt, of is de pagina verplaatst.",
+    backHome: "Terug naar home",
   },
   en: {
     education: "Education",
@@ -183,6 +188,11 @@ const translations = {
     email: "Email",
     github: "GitHub",
     linkedin: "LinkedIn",
+
+    // 404 Page
+    notFoundTitle: "Page not found",
+    notFoundDescription: "Oops, this page doesn't exist (anymore). Maybe the address was mistyped, or the page has moved.",
+    backHome: "Back to home",
   },
 };
 
