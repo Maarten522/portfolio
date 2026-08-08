@@ -68,6 +68,24 @@ const translations = {
     project5Title: "Musical decoratie - Het Magisch Kompas",
     project5Description:
       "Het kompas is ontworpen als een rekwisiet dat door de acteurs op het podium kon worden gebruikt, en het werd ook gebruikt om enkele van de lichteffecten tijdens de uitvoering te regelen. Dit in samenwerking met Vivo Kampen gegeven door Muziekschool De Pinte.",
+      projectCat: "Kattenkrabpaal",
+      projectCatDescription:
+        "Ik heb deze krabpaal helemaal zelf ontworpen en gemaakt met materialen die ik nog in huis had. Ik besloot om hout te gebruiken dat we nog ergens hadden liggen, daarvoor maakte ik eerst een schets met mogelijke afmetingen en ideeën en daarna heb ik het gaandeweg geïmproviseerd.",
+  
+    // Project groepen
+    multipleProjects: "Meerdere projecten",
+    musicSchoolTitle: "Muziekschool De Pinte/Lochristi VZW",
+    musicSchoolDescription:
+      "Een reeks projecten die ik gemaakt heb in samenwerking met Muziekschool De Pinte, van podiumrekwisieten tot decoratieve techniek.",
+    pianoBoxesTitle: "Pianobakken",
+    pianoBoxesDescription:
+      "Op basis van een bestaand ontwerp heb ik bakken op wieltjes voor digitale piano’s nagemaakt. Deze kisten zijn bedoeld om de piano gemakkelijk naar verschillende lessen en kampen te verplaatsen.",
+    timeMachineTitle: "Tijdreismachine",
+    timeMachineDescription:
+      "Elk jaar gaan we naar pelt op kamp om ons een week te amuseren en te musiceren. Dit alles gebeurt binnen een bepaald weekthema waarbij deze tijdreismachine van pas kwam. Extern is alles verbonden met elektronica (zoals schakelaars, bedrading en weerstanden) en bestuurd met arduino.",
+    schoolProjectsTitle: "Schoolprojecten",
+    schoolProjectsDescription:
+      "Een overzicht van projecten die ik doorheen mijn opleidingen gemaakt heb.",
 
     // Hobby's Sectie
     hobbiesTitle: "Mijn Hobby's",
@@ -162,6 +180,24 @@ const translations = {
     project5Title: "Musical decoration - The Magical Compass",
     project5Description:
       "The compass was designed to be a prop that could be used by the actors on stage, and it was also used to control some of the lighting effects during the performance. This in partnership with Vivo Camps given by school of music De Pinte.",
+      projectCat: "Cat scratching post",
+      projectCatDescription:
+        "I designed and built this scratching post entirely on my own using materials I had on hand. I decided to use some wood we still had lying around; to do this, I first drew a sketch with possible dimensions and then improvised as I went along.",
+  
+    // Project groups
+    multipleProjects: "Multiple projects",
+    musicSchoolTitle: "Muziekschool De Pinte/Lochristi",
+    musicSchoolDescription:
+      "A series of projects I made in collaboration with Muziekschool De Pinte/Lochristi, from stage props to functional assemblies.",
+    pianoBoxesTitle: "Piano cases on wheels",
+    pianoBoxesDescription:
+      "From an existing design, I recreated boxes on wheels for digital piano's. The use of the boxes is to easily move the piano to different classes and camps.",
+    timeMachineTitle: "Time Machine",
+    timeMachineDescription:
+      "Every year, we go to Pelt (Belgium) for camp to have fun and make music for a week. All of this takes place within a specific weekly theme, which is where this time machine came in handy. Externally, everything is connected to electronics (such as switches, wiring, and resistors) and controlled by an Arduino.",
+    schoolProjectsTitle: "School Projects",
+    schoolProjectsDescription:
+      "An overview of projects I made throughout my education.",
 
     // Hobbies Section
     hobbiesTitle: "My Hobbies",
