@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     siteName: "Maarten Van der Schueren",
     images: [
       {
-        url: "https://maartenvds.be/images/maarten.jpg",
+        url: "https://maartenvds.be/images/maartenBanner.jpg",
         width: 1200,
-        height: 630,
+        height: 675,
         alt: "Portfolio Maarten Van der Schueren",
       },
     ],
