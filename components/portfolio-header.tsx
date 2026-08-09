@@ -41,6 +41,13 @@ export function PortfolioHeader() {
           </Button>
           <Button
             variant="ghost"
+            onClick={() => scrollToSection("experience")}
+            className="text-muted-foreground hover:text-foreground"
+          >
+            {t("workExperience")}
+          </Button>
+          <Button
+            variant="ghost"
             onClick={() => scrollToSection("projects")}
             className="text-muted-foreground hover:text-foreground"
           >

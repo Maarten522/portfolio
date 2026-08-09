@@ -3,7 +3,7 @@
 import { useLanguage } from "@/hooks/use-language"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Building2, Calendar, MapPin, TrendingUp } from "lucide-react"
+import { Building2, Calendar, MapPin, TrendingUp, ExternalLink } from "lucide-react"
 import { nl } from "date-fns/locale"
 
 export function WorkExperienceSection() {
@@ -12,6 +12,7 @@ export function WorkExperienceSection() {
   const experiences = [
     {
       company: "Zero Latency VR",
+      url: "https://zlvr.be",
       role: {
         en: "Gamemaster",
         nl: "Gamemaster",
@@ -26,8 +27,8 @@ export function WorkExperienceSection() {
         nl: "Studentenjob",
       },
       description: {
-        en: "Assisting customers with VR experiences, providing technical support, and ensuring smooth operation of the facility.",
-        nl: "Helpen van klanten met VR-ervaringen, technische ondersteuning en zorgen voor een soepele werking van de faciliteit.",
+        en: "I help customers with their VR experiences and make sure everything works properly. When problems occur, I try to solve them as quickly as possible. I also explain how the VR equipment works and help customers get started. In addition, I carry out physical repairs on the equipment, such as the VR weapons and other gear used during the experiences.",
+        nl: "Ik help klanten bij hun VR-ervaring en zorg ervoor dat alles technisch goed werkt. Wanneer er problemen zijn, probeer ik die zo snel mogelijk op te lossen. Daarnaast leg ik klanten uit hoe de VR-apparatuur werkt en help ik hen op weg. Ik doe ook fysieke herstellingen aan het materiaal, zoals de VR-wapens en andere apparatuur die tijdens de ervaringen wordt gebruikt.",
       },
       technologies: {
         en: ["Customer Service", "Technical Support", "Teamwork"],
@@ -41,6 +42,7 @@ export function WorkExperienceSection() {
     },
     {
       company: "Muziekschool Lochristi & De Pinte VZW",
+      url: "https://muziekschoollochristi.be",
       role: {
         en: "Camp leader",
         nl: "Kampleiding",
@@ -49,27 +51,27 @@ export function WorkExperienceSection() {
         en: "2023 - Present",
         nl: "2023 - Heden",
       },
-      location: "Lochristi, BE",
+      location: "Lochristi/De Pinte, BE",
       type: {
         en: "Volunteer",
         nl: "Vrijwillig",
       },
       description: {
-        en: "Organizing and leading activities for children during summer and easter camps, ensuring a fun and safe environment.",
-        nl: "Organiseren en leiden van activiteiten voor kinderen tijdens zomer- en paasvakanties, zorgen voor een leuke en veilige omgeving.",
+        en: "During the summer and Easter holidays, I organize and lead activities for children, ensuring a fun and safe environment. In addition to organizing and supervising camps, I also contribute to technical projects and tasks within the music school. Some examples of these projects can be found in my projects section.",
+        nl: "Tijdens de zomer- en paasvakanties organiseer en begeleid ik activiteiten voor kinderen, waarbij ik zorg voor een leuke en veilige omgeving. Naast het begeleiden van kampen help ik ook mee met technische projecten en klussen binnen de muziekschool. Enkele voorbeelden hiervan zijn terug te vinden bij mijn projecten.",
       },
       technologies: {
-        en: ["Leadership", "Event Planning", "Child Care"],
-        nl: ["Leiderschap", "Evenementenplanning", "Kinderopvang"],
+        en: ["Leadership", "Event Planning", "Child Care", "Technical services"],
+        nl: ["Leiderschap", "Evenementenplanning", "Kinderopvang", "Technische diensten"],
       },
       achievements: {
-        en: "Successfully managed groups of 20+ children",
-        nl: "Succesvol groepen van 20+ kinderen geleid",
+       
       },
       current: true,
     },
     {
       company: "ArcelorMittal Gent",
+      url: "https://belgium.arcelormittal.com/",
       role: {
         en: "Computer Vision Intern",
         nl: "Computer Vision Stagiair",
@@ -98,6 +100,35 @@ export function WorkExperienceSection() {
       current: false,
     },
     {
+      company: "Degramec BV.",
+      url: "https://degramec.be",
+      role: {
+        en: "Electromechanics Intern",
+        nl: "Stagair Elektromechanica",
+      },
+      period: {
+        en: "February 2022",
+        nl: "Februari - 2022",
+      },
+      location: "Lochristi, BE",
+      type: {
+        en: "Internship",
+        nl: "Stage",
+      },
+      description: {
+        en: "Serving food and drinks, managing customer orders, and ensuring a pleasant dining experience.",
+        nl: "Tijdens mijn stage bij degramec kregen we de kans om 14 dagen mee te lopen in de productie- en installatieomgeving. Hierbij hielp ik onder andere met het monteren van machines, plooien en zandstralen van metaalplaten en het voorbereiden van elektrische bedieningskasten. Daarnaast zijn we ook op verplaatsing geweest voor de installatie bij een klant.",
+      },
+      technologies: {
+        en: ["Assemble", "Customer Service", "Independence", "AC motors"],
+        nl: ["Monteren", "Klantenservice", "Zelstandigheid", "AC motoren"],
+      },
+      achievements: {
+     
+      },
+      current: false,
+    },
+    {
       company: "Foodbar Margot",
       role: {
         en: "Waiter & bartender",
@@ -113,8 +144,8 @@ export function WorkExperienceSection() {
         nl: "Student",
       },
       description: {
-        en: "Serving food and drinks, managing customer orders, and ensuring a pleasant dining experience.",
-        nl: "Opdienen van eten en drinken, opnemen van klantbestellingen en zorgen voor een aangename eetervaring.",
+        en: "At Foodbar Margot, I started working in the dishwashing area. Over time, I had the opportunity to take on more responsibilities in the dining area and also spent some time working behind the bar. This allowed me to gain experience in different aspects of the hospitality industry and develop skills in both kitchen support and customer service.",
+        nl: "Bij Foodbar Margot ben ik gestart in de afwas. Na verloop van tijd kreeg ik de kans om steeds meer mee te werken in de zaal en heb ik ook een tijdje achter de bar gestaan. Zo leerde ik verschillende kanten van de horeca kennen en ontwikkelde ik ervaring in zowel de keuken als de bediening.",
       },
       technologies: {
         en: ["Serving", "Customer Service", "Independence"],
@@ -123,7 +154,7 @@ export function WorkExperienceSection() {
       achievements: {
      
       },
-      current: true,
+      current: false,
     },
   ]
 
@@ -152,7 +183,19 @@ export function WorkExperienceSection() {
                         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
                           <div className="flex items-center gap-2">
                             <Building2 className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
-                            <h3 className="text-lg sm:text-xl font-semibold text-foreground">{exp.company}</h3>
+                            {exp.url ? (
+                              <a
+                                href={exp.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-lg sm:text-xl font-semibold text-foreground hover:text-primary transition-colors inline-flex items-center gap-1.5"
+                              >
+                                {exp.company}
+                                <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
+                              </a>
+                            ) : (
+                              <h3 className="text-lg sm:text-xl font-semibold text-foreground">{exp.company}</h3>
+                            )}
                           </div>
                           {exp.current && (
                             <Badge
