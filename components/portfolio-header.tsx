@@ -22,7 +22,7 @@ export function PortfolioHeader() {
   return (
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-sm border-b border-border z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="font-bold text-xl font-mono">{"<MVDS/>"}</div>
+        <div onClick={() => scrollToSection("top")} className="font-bold cursor-pointer text-xl font-mono">{"<MVDS/>"}</div>
 
         <nav className="hidden md:flex items-center space-x-6">
           <Button

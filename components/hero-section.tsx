@@ -42,7 +42,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-card">
+    <section id="top" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-card">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
