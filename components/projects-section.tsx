@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useLanguage } from "@/hooks/use-language";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, X, Play, Layers } from "lucide-react";
+import { ExternalLink, Github, X, Play, Layers, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -20,6 +20,7 @@ type SubProject = {
   title: string;
   description: string;
   image: string;
+  images?: string[];
   video?: string;
   tags: string[];
 };
@@ -28,6 +29,7 @@ type Project = {
   title: string;
   description: string;
   image: string;
+  images?: string[];
   video?: string;
   code?: string;
   website?: string;
@@ -39,6 +41,7 @@ export function ProjectsSection() {
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeSubIndex, setActiveSubIndex] = useState(0);
+  const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
 
   const projects: Project[] = [
     {
@@ -98,6 +101,7 @@ export function ProjectsSection() {
           title: t("pianoBoxesTitle"),
           description: t("pianoBoxesDescription"),
           image: "/images/pianobakken.jpg",
+          images: ["/images/pianobakken2.jpg", "/images/pianobakken3.jpg"],
           tags: ["Wood", "Design", "Functional"],
         },
         {
@@ -117,6 +121,12 @@ export function ProjectsSection() {
   const openProject = (project: Project) => {
     setSelectedProject(project);
     setActiveSubIndex(0);
+    setActiveGalleryIndex(0);
+  };
+
+  const selectSubProject = (index: number) => {
+    setActiveSubIndex(index);
+    setActiveGalleryIndex(0);
   };
 
   const ProjectCard = ({ project }: { project: Project }) => (
@@ -157,10 +167,19 @@ export function ProjectsSection() {
   );
 
   const activeSub = selectedProject?.subProjects?.[activeSubIndex];
-  const displayImage = activeSub?.image ?? selectedProject?.image;
-  const displayDescription = activeSub?.description ?? selectedProject?.description;
-  const displayTags = activeSub?.tags ?? selectedProject?.tags ?? [];
-  const displayVideo = activeSub?.video ?? selectedProject?.video;
+  const displayItem = activeSub ?? selectedProject;
+  const galleryImages = displayItem
+    ? [displayItem.image, ...(displayItem.images ?? [])]
+    : [];
+  const displayImage = galleryImages[activeGalleryIndex] ?? galleryImages[0];
+  const displayDescription = displayItem?.description;
+  const displayTags = displayItem?.tags ?? [];
+  const displayVideo = displayItem?.video;
+
+  const showPrevImage = () =>
+    setActiveGalleryIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length);
+  const showNextImage = () =>
+    setActiveGalleryIndex((i) => (i + 1) % galleryImages.length);
 
   return (
     <section id="projects" className="py-20 bg-card/50">
@@ -213,6 +232,25 @@ export function ProjectsSection() {
                 alt={activeSub?.title ?? selectedProject.title}
                 className="w-full h-full object-contain"
               />
+              {galleryImages.length > 1 && (
+                <>
+                  <button
+                    onClick={showPrevImage}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background text-foreground rounded-full p-1.5 transition-colors"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
+                  <button
+                    onClick={showNextImage}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background text-foreground rounded-full p-1.5 transition-colors"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
+                  <span className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-background/80 text-foreground text-xs px-2 py-1 rounded-md">
+                    {activeGalleryIndex + 1} / {galleryImages.length}
+                  </span>
+                </>
+              )}
               <button
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-3 right-3 bg-background/80 hover:bg-background text-foreground rounded-full p-1.5 transition-colors"
@@ -233,7 +271,7 @@ export function ProjectsSection() {
                   {selectedProject.subProjects.map((sub, i) => (
                     <button
                       key={i}
-                      onClick={() => setActiveSubIndex(i)}
+                      onClick={() => selectSubProject(i)}
                       className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
                         i === activeSubIndex ? "border-primary" : "border-transparent opacity-60 hover:opacity-100"
                       }`}
