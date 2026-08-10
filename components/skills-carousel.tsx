@@ -49,7 +49,7 @@ export function SkillsCarousel() {
         </h3>
 
         <div className="overflow-hidden">
-          <div className="flex animate-scroll">
+          <div className="flex w-max animate-scroll">
             {/* Original set */}
             {skills.map((skill, index) => (
               <div
@@ -96,7 +96,7 @@ export function SkillsCarousel() {
         }
 
         .animate-scroll {
-          animation: scroll 15s linear infinite;
+          animation: scroll 50s linear infinite;
         }
 
         .animate-scroll:hover {
