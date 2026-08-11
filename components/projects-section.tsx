@@ -16,6 +16,13 @@ import Autoplay from "embla-carousel-autoplay";
 
 const GRID_THRESHOLD = 3;
 
+function getYouTubeEmbedUrl(url: string): string | null {
+  const match = url.match(
+    /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+  );
+  return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1&mute=1` : null;
+}
+
 type SubProject = {
   title: string;
   description: string;
@@ -61,6 +68,7 @@ export function ProjectsSection() {
           title: t("project3Title"),
           description: t("project3Description"),
           image: "/images/chatbot.png",
+          video: "https://www.youtube.com/watch?v=Psl3flDs8zg",
           tags: ["NLP", "TensorFlow", "Node.js"],
         },
         {
@@ -175,6 +183,7 @@ export function ProjectsSection() {
   const displayDescription = displayItem?.description;
   const displayTags = displayItem?.tags ?? [];
   const displayVideo = displayItem?.video;
+  const youtubeEmbedUrl = displayVideo ? getYouTubeEmbedUrl(displayVideo) : null;
 
   const showPrevImage = () =>
     setActiveGalleryIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length);
@@ -298,10 +307,20 @@ export function ProjectsSection() {
 
               {/* Video */}
               {displayVideo && (
-                <div key={displayVideo} className="rounded-xl overflow-hidden bg-black">
-                  <video controls className="w-full max-h-72">
-                    <source src={displayVideo} type="video/mp4" />
-                  </video>
+                <div key={displayVideo} className="rounded-xl overflow-hidden bg-black aspect-video">
+                  {youtubeEmbedUrl ? (
+                    <iframe
+                      src={youtubeEmbedUrl}
+                      title={activeSub?.title ?? selectedProject.title}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <video controls autoPlay muted playsInline loop className="w-full h-full">
+                      <source src={displayVideo} type="video/mp4" />
+                    </video>
+                  )}
                 </div>
               )}
 
