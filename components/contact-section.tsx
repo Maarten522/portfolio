@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { useLanguage } from "@/hooks/use-language"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -8,13 +9,20 @@ import { IoLogoModelS } from "react-icons/io";
 
 export function ContactSection() {
   const { t } = useLanguage()
+  const [email, setEmail] = useState<string | null>(null)
+
+  useEffect(() => {
+    const user = ["maarten", "vanderschueren"].join(".")
+    const domain = ["telenet", "be"].join(".")
+    setEmail(`${user}@${domain}`)
+  }, [])
 
   const contacts = [
     {
       icon: Mail,
       label: t("email"),
-      value: "maarten.vanderschueren@telenet.be",
-      href: "mailto:maarten.vanderschueren@telenet.be",
+      value: email ?? "•••••••@•••••••.••",
+      href: email ? `mailto:${email}` : undefined,
       color: "text-red-400",
     },
     {

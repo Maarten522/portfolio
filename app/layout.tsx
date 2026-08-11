@@ -18,6 +18,7 @@ const montserrat = localFont({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://maartenvds.be"),
   title: "Portfolio - Maarten Van der Schueren",
   description: "Portfolio van Maarten Van der Schueren — Bachelor Toegepaste Informatica, gepassioneerd door AI, data en techniek.",
   icons: {
